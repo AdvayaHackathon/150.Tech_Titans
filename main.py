@@ -49,9 +49,11 @@ def put_into_3_files(count, read, file_name1, file_name2, file_name3):
     check2 = check1 + count['pneumonia']
     check3 = check2 + count['lung_cancer']
 
-    csv_data1 = [read[0][:check1], read[1][:check1]]
-    csv_data2 = [read[0][check1:check2], read[1][check1:check2]]
-    csv_data3 = [read[0][check2:check3], read[1][check2:check3]]
+
+    common_data = [read[0][check3:], read[1][check3:]]
+    csv_data1 = [read[0][:check1] + common_data[0], read[1][:check1] + common_data[1]]
+    csv_data2 = [read[0][check1:check2] + common_data[0], read[1][check1:check2] + common_data[1]]
+    csv_data3 = [read[0][check2:check3] + common_data[0], read[1][check2:check3] + common_data[1]]
 
     with open(file_name1, 'w', newline='') as file1:
         writer = csv.writer(file1)
@@ -122,20 +124,25 @@ def main():
                 "Have you previously had radiation therapy to the chest?",
                 "Do you have any chronic lung diseases (e.g. COPD, TB scars)?"
             ]
+        },
+
+        "common_data": {
+            "key": [
+                "Are you male?",
+                "Are you above 45 years of age?"
+            ]
         }
     }
 
     count = count_lines(disease_questions)
+
     print(f"Lines are: {count}")
-    """
     input_file = convert_to_csv_format(disease_questions)
-    write_to_csv(file_name = "main_file.csv", csv_data = input_file)"""
+    write_to_csv(file_name = "main_file.csv", csv_data = input_file)
     with open("main_file.csv", 'r', newline='') as file1:
         reader = csv.reader(file1)
         read_data = list(reader)
-
         put_into_3_files(count, read_data, file_name1 = "tuberculosis.csv", file_name2="pneumonia.csv", file_name3="lung_cancer.csv")
-
 
 
 main()
