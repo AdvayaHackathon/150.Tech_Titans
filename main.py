@@ -47,7 +47,8 @@ def put_into_3_files(count, read, file_name1, file_name2, file_name3):
     check1 = count['tuberculosis']
     check2 = check1 + count['pneumonia']
     check3 = check2 + count['lung_cancer']
-
+    check4 = count['common_data']
+    print(check4 + 2)
 
     common_data = [read[0][check3:], read[1][check3:]]
     csv_data1 = [read[0][:check1] + common_data[0], read[1][:check1] + common_data[1]]
@@ -137,10 +138,13 @@ def main(change_main):
         print(f"Lines are: {count}")
         input_file = convert_to_csv_format(disease_questions)
         write_to_csv(file_name = "main_file.csv", csv_data = input_file)
+    put_into_3_files(count, read_data, file_name1 = "tuberculosis.csv", file_name2="pneumonia.csv", file_name3="lung_cancer.csv")
+
+
     with open("main_file.csv", 'r', newline='') as file1:
         reader = csv.reader(file1)
         read_data = list(reader)
         put_into_3_files(count, read_data, file_name1 = "tuberculosis.csv", file_name2="pneumonia.csv", file_name3="lung_cancer.csv")
 
 
-main(1)
+main(0)
