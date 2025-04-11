@@ -54,7 +54,7 @@ column_names = [
 
 # Load dataset from CSV
 try:
-    df = pd.read_csv('/Users/kartikeya/Downloads/synthetic_patient_data.csv')  # Adjust path as needed
+    df = pd.read_csv(r"C:\Users\benoi\Downloads\synthetic_patient_data.csv")  # Adjust path as needed
 except FileNotFoundError:
     print("Error: 'multi_disease_data.csv' not found. Please provide the correct file path.")
     exit(1)
