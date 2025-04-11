@@ -18,16 +18,27 @@ except ImportError:
 
 # Load dataset from CSV
 try:
-    df = pd.read_csv('/Users/kartikeya/Downloads/tuberculosis_augmented_2.csv')  # Replace with your actual file path if different
+    df = pd.read_csv('/Users/kartikeya/Downloads/tuberculosis_augmented_2.csv')
 except FileNotFoundError:
-    print("Error: 'tb_data.csv' not found. Please provide the correct file path.")
+    print("Error: 'tuberculosis_augmented_2.csv' not found. Please provide the correct file path.")
     exit(1)
 
-# Define column names based on your dataset
+# Define column names based on your dataset (15 columns: 14 features + 1 target)
 column_names = [
-    'Do you have a persistent cough lasting more than 2 weeks?', 'Are you coughing up blood or blood-stained sputum?', 'Do you experience night sweats regularly?', 'Have you had an unexplained weight loss recently?',
-    'Do you have a prolonged fever or fatigue?', 'Have you been in close contact with a person who has TB?', 'Have you previously been treated for TB?', 'Have you traveled or lived in a region with high TB prevalence?',
-    'Are you HIV positive?', 'Are you undergoing immune-suppressive treatment (e.g. cancer therapy)?', 'Are you malnourished or underweight?', 'Do you have chronic illnesses such as diabetes?','Are you male?','Are you above 45 years of age?'
+    'Do you have a persistent cough lasting more than 2 weeks?',
+    'Are you coughing up blood or blood-stained sputum?',
+    'Do you experience night sweats regularly?',
+    'Have you had an unexplained weight loss recently?',
+    'Do you have a prolonged fever or fatigue?',
+    'Have you been in close contact with a person who has TB?',
+    'Have you previously been treated for TB?',
+    'Have you traveled or lived in a region with high TB prevalence?',
+    'Are you HIV positive?',
+    'Are you undergoing immune-suppressive treatment (e.g. cancer therapy)?',
+    'Are you malnourished or underweight?',
+    'Do you have chronic illnesses such as diabetes?',
+    'Are you male?',
+    'Are you above 45 years of age?',  # Comma added here
     'Has Tuberculosis'
 ]
 
