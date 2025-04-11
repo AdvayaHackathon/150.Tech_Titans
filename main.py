@@ -24,7 +24,6 @@ def convert_to_csv_format(disease_questions):
     list_responses = []
     keys = list(dict_responses.keys())
     values = list(dict_responses.values())
-    print(keys, values)
     list_responses.append(keys)
     list_responses.append(values)
     return list_responses
@@ -67,7 +66,7 @@ def put_into_3_files(count, read, file_name1, file_name2, file_name3):
         writer = csv.writer(file1)
         writer.writerows(csv_data3)
 
-def main():
+def main(change_main):
 
     disease_questions = {
         "tuberculosis": {
@@ -102,7 +101,6 @@ def main():
                 "Do you have asthma or COPD?",
                 "Are you immunocompromised (e.g. HIV, chemo, steroids)?",
                 "Do you smoke or have a smoking history?",
-                "Are you a child below 5 or an adult over 65?",
                 "Do you have any chronic heart or lung diseases?",
                 "Have you received pneumococcal or flu vaccinations?"
             ]
@@ -135,14 +133,14 @@ def main():
     }
 
     count = count_lines(disease_questions)
-
-    print(f"Lines are: {count}")
-    input_file = convert_to_csv_format(disease_questions)
-    write_to_csv(file_name = "main_file.csv", csv_data = input_file)
+    if change_main:
+        print(f"Lines are: {count}")
+        input_file = convert_to_csv_format(disease_questions)
+        write_to_csv(file_name = "main_file.csv", csv_data = input_file)
     with open("main_file.csv", 'r', newline='') as file1:
         reader = csv.reader(file1)
         read_data = list(reader)
         put_into_3_files(count, read_data, file_name1 = "tuberculosis.csv", file_name2="pneumonia.csv", file_name3="lung_cancer.csv")
 
 
-main()
+main(1)

@@ -1,4 +1,2 @@
-Do you have a cough with mucus or phlegm?,Are you experiencing chest pain when breathing or coughing?,"Do you have a high fever, chills, or sweating?",Are you experiencing shortness of breath?,Do you feel unusually fatigued or weak?,Have you recently had a respiratory infection (like flu or cold)?,Do you have asthma or COPD?,"Are you immunocompromised (e.g. HIV, chemo, steroids)?",Do you smoke or have a smoking history?,Are you a child below 5 or an adult over 65?,Do you have any chronic heart or lung diseases?,Have you received pneumococcal or flu vaccinations?,Are you male?,Are you above 45 years of age?
-1,1,1,1,1,0,0,0,0,0,0,0,1,1
-Are you male?,Are you above 45 years of age?
-1,1
+Do you have a cough with mucus or phlegm?,Are you experiencing chest pain when breathing or coughing?,"Do you have a high fever, chills, or sweating?",Are you experiencing shortness of breath?,Do you feel unusually fatigued or weak?,Have you recently had a respiratory infection (like flu or cold)?,Do you have asthma or COPD?,"Are you immunocompromised (e.g. HIV, chemo, steroids)?",Do you smoke or have a smoking history?,Do you have any chronic heart or lung diseases?,Have you received pneumococcal or flu vaccinations?,Are you male?,Are you above 45 years of age?
+1,1,1,1,1,0,0,0,0,0,0,0,0
