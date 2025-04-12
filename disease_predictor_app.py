@@ -21,6 +21,21 @@ def write_to_csv(file_name, questions, answers):
         writer.writerow(questions)
         writer.writerow(answers)
 
+
+def save_uploaded_images(uploaded_files, output_dir="uploaded_images"):
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    image_paths = []
+    for file in uploaded_files:
+        image = Image.open(file)
+        # Save with a unique name (e.g., timestamp + original name)
+        file_path = os.path.join(output_dir, f"{time.time()}_{file.name}")
+        image.save(file_path)
+        image_paths.append(file_path)
+    return image_paths
+
+
+
 # Prediction function (adapted from your script)
 def predict_disease(answers, feature_names):
     # Load model and label encoder
@@ -163,6 +178,11 @@ def main():
                     image = Image.open(i)
                     st.image(image, caption="Uploaded Image", use_column_width=True)
                     
+                    image = image.convert("L")  # "L" mode is for grayscale
+
+                    st.subheader("Grayscale Image")
+                    st.image(image, use_column_width=True)
+
                     # Explicit Submit button
                     if submit_button3:
 
@@ -235,21 +255,6 @@ def main():
             for i in list1:
                 os.remove(os.path.join("./test_imgs", i))
 
-
-
-             
-
-def save_uploaded_images(uploaded_files, output_dir="uploaded_images"):
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-    image_paths = []
-    for file in uploaded_files:
-        image = Image.open(file)
-        # Save with a unique name (e.g., timestamp + original name)
-        file_path = os.path.join(output_dir, f"{time.time()}_{file.name}")
-        image.save(file_path)
-        image_paths.append(file_path)
-    return image_paths
 
 
 main()
