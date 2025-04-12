@@ -7,7 +7,7 @@ def write_to_csv(file_name, csv_data):
         writer = csv.writer(file1)
         writer.writerows(csv_data)
 
-def main():
+def main(the_file_name):
 
     disease_questions = [
                 "Do you have a persistent cough lasting more than 2 weeks?",
@@ -71,8 +71,8 @@ def main():
         if submit_button:
             final_csv_data = [questions, answers]
             print(final_csv_data)
-            write_to_csv(file_name = "main_V2_data.csv", csv_data = final_csv_data)
+            write_to_csv(file_name = the_file_name, csv_data = final_csv_data)
         
 
-
-main()
+if __name__ == "__main__":
+    main(the_file_name = "main_V2_data.csv")
